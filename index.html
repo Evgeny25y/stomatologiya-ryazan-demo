@@ -354,6 +354,73 @@
     .foot { grid-template-columns: 1fr; gap: var(--v-2); font-size: var(--v-t-sm); padding: var(--v-5) var(--v-gutter) calc(var(--v-5) + env(safe-area-inset-bottom)); }
     .foot__more { display: none; }
   }
+
+  /* ---- новые блоки под ТЗ: калькулятор, поездка, акции, анкета ---------------------- */
+  .blk__head { max-width: 46rem; margin-bottom: var(--v-7); }
+  .blk__head .v-label { display: block; margin-bottom: var(--v-4); color: var(--v-accent-deep); }
+  .blk__head p { margin-top: var(--v-4); color: var(--v-ink-soft); max-width: 56ch; text-wrap: pretty; }
+  .note { font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .calc { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: var(--v-8); align-items: start; }
+  .calc__list { border-top: 1px solid var(--v-hair-strong); }
+  .calc__head, .calc__row { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) 6.5rem 6.5rem; gap: var(--v-3); align-items: center; padding: var(--v-4) 0; border-bottom: 1px solid var(--v-hair); }
+  .calc__head { padding: var(--v-3) 0; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); }
+  .calc__head span:nth-child(n+3), .calc__row .p { text-align: right; }
+  .calc__row { cursor: pointer; }
+  .calc__row input { width: 1.2rem; height: 1.2rem; accent-color: var(--v-accent); margin: 0; }
+  .calc__row .n { font-weight: 600; }
+  .calc__row .p { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--v-ink-soft); }
+  .calc__row .p.c { color: var(--v-accent-deep); font-weight: 600; }
+  .calc__row:has(input:checked) { background: var(--v-surface); box-shadow: inset 3px 0 0 var(--v-accent); }
+  .calc__res { position: sticky; top: clamp(5rem, 12vh, 7rem); padding: var(--v-6); border-radius: var(--v-radius); background: var(--v-surface); box-shadow: var(--v-e2); display: grid; gap: var(--v-3); }
+  .calc__res dl { display: grid; grid-template-columns: 1fr auto; gap: var(--v-2) var(--v-4); }
+  .calc__res dt { color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .calc__res dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .calc__res .save { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); color: var(--v-accent-deep); line-height: 1.1; }
+  .calc__gift { padding-top: var(--v-3); border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); color: var(--v-ink); min-height: 3.2em; }
+  .calc__res .v-btn { justify-content: center; margin-top: var(--v-2); }
+  @media (max-width: 860px) {
+    .calc { grid-template-columns: 1fr; gap: var(--v-6); }
+    .calc__head, .calc__row { grid-template-columns: 1.6rem minmax(0, 1fr) 5.2rem 5.2rem; gap: var(--v-2); font-size: var(--v-t-sm); }
+    .calc__res { position: relative; top: auto; }
+  }
+  .trip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--v-8); align-items: start; }
+  .trip__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-4); }
+  .trip__tile { aspect-ratio: 4 / 3; border-radius: var(--v-radius); background: linear-gradient(135deg, var(--v-surface), var(--v-canvas)); box-shadow: inset 0 0 0 1px var(--v-hair-strong); display: grid; align-content: end; padding: var(--v-4); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .trip__tile b { color: var(--v-ink); font-weight: 600; }
+  .trip__list li { padding: var(--v-4) 0; border-top: 1px solid var(--v-hair); display: grid; gap: var(--v-1); }
+  .trip__list li:last-child { border-bottom: 1px solid var(--v-hair); }
+  .trip__list b { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: -0.01em; }
+  .trip__list span { color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .offers { margin-top: var(--v-8); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--v-5); }
+  .offer { padding: var(--v-6); border-radius: var(--v-radius); background: var(--v-surface); box-shadow: var(--v-e1); display: grid; gap: var(--v-3); align-content: start; }
+  .offer .v-label { color: var(--v-accent-deep); }
+  .offer b { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-xl); line-height: 1.1; letter-spacing: -0.015em; }
+  .offer p { color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  .offer--top { box-shadow: inset 0 3px 0 var(--v-accent), var(--v-e2); }
+  .offers__foot { margin-top: var(--v-5); display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-4) var(--v-6); }
+  .blk__head .v-display { font-size: clamp(1.9rem, 1.1rem + 2.2vw, 3rem); line-height: 1.08; text-wrap: balance; }
+  .qnav a { white-space: nowrap; }
+  @media (max-width: 1280px) { .qnav { display: none; } }
+  .trip > *, .calc > * { min-width: 0; }
+  .blk__head { overflow-wrap: anywhere; }
+  @media (max-width: 860px) { .trip { grid-template-columns: minmax(0, 1fr); gap: var(--v-6); } .offers { grid-template-columns: minmax(0, 1fr); } }
+  .quiz { max-width: 52rem; display: grid; gap: var(--v-6); }
+  .quiz fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: var(--v-3); }
+  .quiz legend { padding: 0; margin-bottom: var(--v-2); font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); }
+  .quiz__chips { display: flex; flex-wrap: wrap; gap: var(--v-2) var(--v-3); }
+  .quiz__chips label { display: inline-flex; align-items: center; gap: .5em; padding: .6em 1.1em; min-height: 44px; border-radius: 999px; background: var(--v-surface); box-shadow: inset 0 0 0 1px var(--v-hair-strong); cursor: pointer; font-size: var(--v-t-sm); }
+  .quiz__chips label:has(input:checked) { box-shadow: inset 0 0 0 2px var(--v-accent); }
+  .quiz__chips input { accent-color: var(--v-accent); margin: 0; }
+  .quiz__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-4); }
+  .quiz input[type="text"], .quiz input[type="tel"], .quiz input[type="url"] { width: 100%; font: inherit; font-size: var(--v-t-base); color: var(--v-ink); background: var(--v-surface); border: 1px solid var(--v-hair-strong); border-radius: 14px; padding: .8em 1em; min-height: 3.25rem; outline: none; }
+  .quiz input:focus-visible { border-color: var(--v-accent); box-shadow: 0 0 0 3px rgb(59 79 163 / .18); }
+  .quiz label.f { display: grid; gap: .4em; font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .quiz .agree { display: flex; gap: .7em; align-items: flex-start; font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .quiz .agree input { accent-color: var(--v-accent); margin-top: .25em; width: 1.1rem; height: 1.1rem; flex: none; }
+  .quiz .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .quiz__msg { font-size: var(--v-t-sm); padding: var(--v-4); border-radius: 14px; background: var(--v-surface); box-shadow: inset 3px 0 0 var(--v-accent); }
+  .quiz .v-btn { justify-self: start; border: 0; cursor: pointer; background: var(--v-accent); color: var(--v-accent-ink); }
+  @media (max-width: 600px) { .quiz__row { grid-template-columns: 1fr; } .quiz .v-btn { justify-self: stretch; justify-content: center; } }
 </style>
 </head>
 <body>
@@ -364,6 +431,7 @@
     <a class="bar__mark" href="#top"><i aria-hidden="true"></i>Династия</a>
     <nav class="qnav" aria-label="Пять вопросов до кресла">
       <a href="#uslugi">Услуги</a>
+      <a href="#raschet">Расчёт</a>
       <a href="#bolno"><b>1</b>Будет больно?</a>
       <a href="#vizit"><b>2</b>Что будете делать?</a>
       <a href="#ceny"><b>3</b>Сколько стоит?</a>
@@ -372,7 +440,7 @@
     </nav>
     <div class="bar__right">
       <a class="bar__tel" href="tel:{{телефон}}">{{телефон}}</a>
-      <a class="v-btn" href="{{ссылка-записи}}" target="_blank" rel="noopener">Записаться</a>
+      <a class="v-btn" href="#raschet" data-goal="bar_calc">Рассчитать</a>
     </div>
   </header>
 
@@ -406,8 +474,8 @@
         <div class="v-copy v-copy--lead hero__copy" data-v-cue="0 0.62 0 0.1">
           <p class="demo-for">Демо для laguteevaanna · по заказу «Лендинг для частной стоматологии»</p>
           <span class="v-label hero__label">Стоматология «Династия»</span>
-          <h1 class="v-display v-display--xl" data-v-kinetic="lines">Стоматология в Рязани: цена до лечения и не растёт</h1>
-          <p class="v-lede">Приезжайте из Москвы и области: план лечения письменно, объясняем каждый шаг, анестезия перед любым вмешательством.</p>
+          <h1 class="v-display v-display--xl" data-v-kinetic="lines">Стоматология в Рязани: лечение без переплаты за московские цены</h1>
+          <p class="v-lede">Приезжайте из Москвы и области: консультация по КТ до поездки, персональный координатор, план лечения письменно.</p>
           <ul class="hero__pluses" aria-label="Почему к нам">
             <li>План и итоговая цена письменно до лечения</li>
             <li>Анестезия перед любым вмешательством</li>
@@ -415,7 +483,7 @@
             <li>Приём по записи, без очереди</li>
           </ul>
           <div class="hero__cta">
-            <a class="v-btn" href="{{ссылка-записи}}" target="_blank" rel="noopener">Записаться</a>
+            <a class="v-btn" href="#raschet" data-goal="hero_calc">Рассчитать стоимость</a>
             <a class="hero__tel" href="tel:{{телефон}}">или позвоните <b>{{телефон}}</b></a>
           </div>
         </div>
@@ -455,6 +523,78 @@
         <div class="usl__foot" data-v-in data-v-in-self>
           <p>Не нашли свою ситуацию или не знаете, что именно нужно? Начните с осмотра: врач посмотрит, объяснит и напишет план с ценой по пунктам.</p>
           <a class="v-btn v-btn--ghost" href="{{ссылка-записи}}" target="_blank" rel="noopener">Записаться</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАЛЬКУЛЯТОР: сравнение стоимости (данные в JSON ниже, правятся без переделки) -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f4f5f9" id="raschet" aria-label="Калькулятор сравнения стоимости">
+      <div class="v-wrap">
+        <div class="blk__head" data-v-in data-v-stagger="70">
+          <span class="v-label">Расчёт</span>
+          <h2 class="v-display v-display--lg">Сравните стоимость лечения в Москве и в «Династии»</h2>
+          <p>Отметьте нужные услуги: покажем ориентировочную стоимость в Москве, в нашей клинике и разницу. Итоговая цена и план – только после консультации врача.</p>
+        </div>
+        <div class="calc">
+          <div data-v-in data-v-stagger="45">
+            <div class="calc__list" id="calc-list" role="group" aria-label="Услуги для расчёта">
+              <div class="calc__head"><span></span><span>Услуга</span><span>Москва</span><span>Династия</span></div>
+            </div>
+            <p class="note" style="margin-top: var(--v-4)">Цены условные, для показа работы калькулятора. Заменим вашим утверждённым прайсом сравнения: цены Москвы – только из согласованных источников.</p>
+          </div>
+          <aside class="calc__res" data-v-in data-v-in-self aria-live="polite">
+            <dl>
+              <dt>В Москве</dt><dd id="calc-m">0 ₽</dd>
+              <dt>В «Династии»</dt><dd id="calc-c">0 ₽</dd>
+              <dt>Разница</dt><dd id="calc-d">0 ₽ (0%)</dd>
+            </dl>
+            <div class="save" id="calc-save">Отметьте услуги</div>
+            <div class="calc__gift" id="calc-gift">Всем иногородним пациентам: такси с вокзала до клиники и обратно.</div>
+            <a class="v-btn" href="#anketa" data-goal="calc_personal">Получить персональный расчёт</a>
+          </aside>
+        </div>
+        <script type="application/json" id="calc-data">
+        [
+          {"id":"gigiena","name":"Профессиональная гигиена","moscow":7000,"clinic":5000},
+          {"id":"karies","name":"Лечение кариеса (пломба)","moscow":9000,"clinic":6500},
+          {"id":"implant","name":"Имплантация (один имплант)","moscow":75000,"clinic":55000},
+          {"id":"koronka","name":"Коронка на цирконии","moscow":38000,"clinic":29000},
+          {"id":"vinir","name":"Винир","moscow":42000,"clinic":32000},
+          {"id":"allon4","name":"All-on-4 (одна челюсть)","moscow":480000,"clinic":370000}
+        ]
+        </script>
+      </div>
+    </section>
+
+    <!-- ПОЕЗДКА: стоматология + Рязань, специальные предложения (суммы и условия правятся в разметке) -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#eceef6" id="poezdka" aria-label="Лечение и поездка в Рязань">
+      <div class="v-wrap">
+        <div class="trip">
+          <div class="blk__head" data-v-in data-v-stagger="70" style="margin-bottom:0">
+            <span class="v-label">Лечение и поездка</span>
+            <h2 class="v-display v-display--lg">Совместите заботу о здоровье с небольшой поездкой</h2>
+            <p>Пока идёт лечение, у вас остаётся время на город. Ссылки на экскурсии, гостиницы и кафе согласуем и добавим.</p>
+            <ul class="trip__list" style="margin-top: var(--v-6)">
+              <li><b>Рязанский кремль</b><span>Прогулка по историческому центру между визитами. {{ссылка-экскурсии}}</span></li>
+              <li><b>Берег Оки</b><span>Спокойный вечер после приёма. {{ссылка-места}}</span></li>
+              <li><b>Места Есенина</b><span>Родина поэта в Рязанской области. {{ссылка-экскурсии}}</span></li>
+            </ul>
+          </div>
+          <div class="trip__tiles" data-v-in data-v-stagger="80">
+            <div class="trip__tile"><b>Фото: Рязанский кремль</b>Добавим настоящее фото</div>
+            <div class="trip__tile"><b>Фото: набережная Оки</b>Добавим настоящее фото</div>
+            <div class="trip__tile"><b>Фото: центр города</b>Добавим настоящее фото</div>
+            <div class="trip__tile"><b>Фото: гостиница</b>Добавим настоящее фото</div>
+          </div>
+        </div>
+        <div class="offers" data-v-in data-v-stagger="80" id="offers">
+          <article class="offer"><span class="v-label">Всем иногородним</span><b>Такси с вокзала и обратно</b><p>Вызываем такси с вокзала до клиники и после приёма отвозим на вокзал.</p></article>
+          <article class="offer"><span class="v-label">Лечение от <span data-offer-sum="100000">100 000</span>&nbsp;₽</span><b>Билет на электричку Москва – Рязань в подарок</b><p>При планировании лечения на сумму от 100 000 ₽. Условия согласуем до публикации.</p></article>
+          <article class="offer offer--top"><span class="v-label">Лечение от <span data-offer-sum="200000">200 000</span>&nbsp;₽</span><b>Билет на электричку и гостиница в подарок</b><p>Проживание в одной из лучших гостиниц Рязани. Условия согласуем до публикации.</p></article>
+        </div>
+        <div class="offers__foot" data-v-in data-v-in-self>
+          <a class="v-btn" href="#raschet" data-goal="offers_calc">Рассчитать стоимость лечения</a>
+          <span class="note">Окончательные условия и порядок предоставления подарков утверждаем с клиникой.</span>
         </div>
       </div>
     </section>
@@ -639,6 +779,56 @@
       </div>
     </section>
 
+    <!-- АНКЕТА + предварительный план по КТ -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f4f5f9" id="anketa" aria-label="Анкета: предварительный план лечения">
+      <div class="v-wrap">
+        <div class="blk__head" data-v-in data-v-stagger="70">
+          <span class="v-label">Предварительный план</span>
+          <h2 class="v-display v-display--lg">Начните с консультации по КТ – ещё до поездки</h2>
+          <p>Ответьте на несколько вопросов. Координатор свяжется с вами, организует рассмотрение случая с врачами клиники и расскажет о вариантах лечения, этапах, ориентировочной стоимости и числе визитов. Окончательный диагноз, план, сроки и стоимость врач определяет после обследования и очной оценки.</p>
+        </div>
+        <form class="quiz" id="quiz" action="{{обработчик-формы}}" method="post" novalidate data-v-in data-v-stagger="60">
+          <fieldset><legend>Какое лечение интересует?</legend>
+            <div class="quiz__chips">
+              <label><input type="checkbox" name="treatment" value="Имплантация">Имплантация</label>
+              <label><input type="checkbox" name="treatment" value="All-on-4 / All-on-6">All-on-4 / All-on-6</label>
+              <label><input type="checkbox" name="treatment" value="Протезирование">Протезирование</label>
+              <label><input type="checkbox" name="treatment" value="Коронки">Коронки</label>
+              <label><input type="checkbox" name="treatment" value="Виниры">Виниры</label>
+              <label><input type="checkbox" name="treatment" value="Ортодонтия">Ортодонтия</label>
+              <label><input type="checkbox" name="treatment" value="Другое">Другое</label>
+            </div>
+          </fieldset>
+          <fieldset><legend>Какая челюсть требует лечения?</legend>
+            <div class="quiz__chips">
+              <label><input type="radio" name="jaw" value="Верхняя">Верхняя</label>
+              <label><input type="radio" name="jaw" value="Нижняя">Нижняя</label>
+              <label><input type="radio" name="jaw" value="Обе">Обе</label>
+            </div>
+          </fieldset>
+          <fieldset><legend>Есть ли компьютерная томография (КТ)?</legend>
+            <div class="quiz__chips">
+              <label><input type="radio" name="ct" value="Есть">Да</label>
+              <label><input type="radio" name="ct" value="Нет">Нет</label>
+              <label><input type="radio" name="ct" value="Отправлю позже">Отправлю позже</label>
+            </div>
+            <label class="f">Ссылка на КТ в облаке (необязательно)
+              <input type="url" name="ct_link" inputmode="url" placeholder="https://">
+            </label>
+            <p class="note">Не прикладывайте снимок открыто. Координатор подскажет безопасный способ передачи КТ.</p>
+          </fieldset>
+          <div class="quiz__row">
+            <label class="f">Имя (желательно)<input type="text" name="name" autocomplete="given-name"></label>
+            <label class="f">Телефон (обязательно)<input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7" required></label>
+          </div>
+          <label class="hp" aria-hidden="true">Не заполняйте<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="agree"><input type="checkbox" name="consent" required><span>Согласен(на) на обработку персональных данных. {{ссылка-политика}}</span></label>
+          <button class="v-btn" type="submit" data-goal="quiz_submit">Получить предварительный план лечения</button>
+          <p class="quiz__msg" id="quiz-msg" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+
     <!-- 7 · ДЕЙСТВИЕ: «Когда можно прийти?» – финал держит реплику, футер внутри сцены -->
     <section data-v-act="pin" data-v-span="1.3" data-v-drift="#f4f5f9" id="zapis" aria-label="Вопрос 5: когда можно прийти?">
       <div data-v-stage>
@@ -758,6 +948,63 @@
     new IntersectionObserver(function (es) { live = es[0].isIntersecting; if (live) tick(); }).observe(act);
     window.addEventListener('resize', function () { place(teeth[last]); });
     set(0);
+  })();
+
+  // Аналитика: цели уходят в dataLayer и в Яндекс.Метрику, когда счётчик подключён (ym(ID,'reachGoal',...)).
+  function goal(name, params) {
+    try { (window.dataLayer = window.dataLayer || []).push({ event: name, params: params || {} }); } catch (e) {}
+    try { if (typeof window.ym === 'function' && window.YM_ID) window.ym(window.YM_ID, 'reachGoal', name, params || {}); } catch (e) {}
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-goal], a[href^="tel:"], a.v-btn');
+    if (!a) return;
+    goal(a.getAttribute('data-goal') || (a.getAttribute('href') || '').indexOf('tel:') === 0 ? 'click_phone' : 'click_cta', { text: (a.textContent || '').trim().slice(0, 60) });
+  });
+
+  // Калькулятор сравнения: перечень услуг и цены берутся из JSON #calc-data, правятся без переделки.
+  (function () {
+    var list = document.getElementById('calc-list'), raw = document.getElementById('calc-data'); if (!list || !raw) return;
+    var data = JSON.parse(raw.textContent), fmt = function (n) { return Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ') + ' ₽'; };
+    var offers = [100000, 200000];
+    var $ = function (id) { return document.getElementById(id); };
+    data.forEach(function (s) {
+      var l = document.createElement('label'); l.className = 'calc__row';
+      l.innerHTML = '<input type="checkbox" value="' + s.id + '"><span class="n">' + s.name + '</span><span class="p">' + fmt(s.moscow) + '</span><span class="p c">' + fmt(s.clinic) + '</span>';
+      list.appendChild(l);
+    });
+    var sent = false;
+    function calc() {
+      var m = 0, c = 0, n = 0;
+      list.querySelectorAll('input:checked').forEach(function (i) { var s = data.filter(function (x) { return x.id === i.value; })[0]; m += s.moscow; c += s.clinic; n++; });
+      var d = m - c, pc = m ? Math.round(d / m * 100) : 0;
+      $('calc-m').textContent = fmt(m); $('calc-c').textContent = fmt(c); $('calc-d').textContent = fmt(d) + ' (' + pc + '%)';
+      $('calc-save').textContent = n ? 'Ориентировочная разница: ' + fmt(d) : 'Отметьте услуги';
+      $('calc-gift').textContent = c >= offers[1] ? 'Для такого плана: такси с вокзала и обратно, билет на электричку и гостиница в подарок.'
+        : c >= offers[0] ? 'Для такого плана: такси с вокзала и обратно и билет на электричку в подарок.'
+        : 'Всем иногородним пациентам: такси с вокзала до клиники и обратно.';
+      if (n && !sent) { sent = true; goal('calc_used'); }
+    }
+    list.addEventListener('change', calc); calc();
+  })();
+
+  // Анкета: проверка полей, защита от спама (скрытое поле), заявка уходит на адрес из action.
+  (function () {
+    var f = document.getElementById('quiz'), msg = document.getElementById('quiz-msg'); if (!f) return;
+    function say(t) { msg.textContent = t; msg.hidden = false; }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (f.website.value) return;
+      var phone = f.phone.value.replace(/\D/g, '');
+      if (phone.length < 10) { say('Укажите номер телефона, чтобы координатор мог связаться с вами.'); f.phone.focus(); return; }
+      if (!f.consent.checked) { say('Нужно согласие на обработку персональных данных.'); return; }
+      var action = f.getAttribute('action') || '';
+      if (/\{\{/.test(action)) { say('Демо: форма пока не подключена. Заявки пойдут координатору в Telegram, на почту или в CRM, как согласуем.'); return; }
+      goal('quiz_submit');
+      fetch(action, { method: 'POST', body: new FormData(f) }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        f.reset(); say('Спасибо! Заявка принята. Координатор свяжется с вами в ближайшее время, обсудит запрос и подскажет, как безопасно передать КТ.');
+      }).catch(function () { say('Не получилось отправить заявку. Позвоните нам или попробуйте ещё раз.'); });
+    });
   })();
 
   // Врачи: клик (или Enter / пробел) по карточке показывает слева фото этого врача.
